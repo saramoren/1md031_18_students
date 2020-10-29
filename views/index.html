@@ -1,9 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>DELI-VERY</title>
+        <title>godaBurgare</title>
+        <meta charset="utf-8"/>
     </head>
-    <body>
-        <h1>Hello World!!!</h1>
+
+    <body style="background-color:floralwhite;">
+        <main>
+          <h1>Välkommen till godaBurgare!</h1>
+
+        <section>
+          <h2 style="color:Tomato">Välj din Burgare</h2>
+          <p>Välj här bland våra goda burgare. Inspirerade av:
+          <a href="https://www.max.se/?gclid=CjwKCAjw0On8BRAgEiwAincsHDWqiqoLHg0DHQpX4XhKIjQfjD5LXb6YGIuplHFP2GiAyx5YDMUX1BoCglIQAvD_BwE">
+          maxhamburgare.se </a> </p>
+
+          <table align="justify">
+            <thead>
+              <tr>
+                <th style="color:green">superGod cheese</th>
+                <th style="color:green">himlaGod halloumi</th>
+                <th style="color:green">väldigtGod vegan</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr> <!--bilderna-->
+                <td><img src="https://www.max.se/contentassets/7283b5a0bf324ba99d7fa7e0caf5ae7f/product_max-original.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Hamburgare" title="Hamburgare" width="200"></td>
+                <td><img src="https://www.max.se/contentassets/bd97342be78047eb8f8026452d545538/product_halloumiburgare.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Halloumiburgare" title="Halloumiburgare" width="200"></td>
+                <td><img src="https://www.max.se/contentassets/f5f13dcf34c24873878e030df544b066/product_delifresh-signature-plant-beef.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Veganskburgare" title="Vegoburgare" width="200"></td>
+              </tr>
+
+              <tr> <!--innehåll-->
+                  <td> <ul>
+                      <li>Nötkött</li>
+                      <li>Cheddarost</li>
+                      <li>Isbergssallad</li>
+                      <li>Ketchup</li>
+                      <li>Dressing</li>
+                    </ul> </td>
+
+                  <td> <ul>
+                      <li>Halloumi</li>
+                      <li>Picklad rödlök</li>
+                      <li>Tomat</li>
+                      <li>Ummamidressing</li>
+                      <li>Briochebröd</li>
+                    </ul> </td>
+
+                  <td> <ul>
+                      <li>Vegansk burgare</li>
+                      <li>Vegansk ost</li>
+                      <li>Isbergssallad</li>
+                      <li>Ketchup</li>
+                      <li>Dressing</li>
+                    </ul> </td>
+              </tr>
+
+              <tr> <!--allergi-->
+                <td>Gluten och laktos</td>
+                <td>Gluten och laktos</td>
+                <td>Allergivänlig</td>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="color:Tomato">Kundinformation</h2>
+          <p>Skriv in kundinformation för att beställa</p>
+
+          <form>
+            <p> <!--namn-->
+              <label for="name">Fullständigt namn</label><br>
+              <input type="text" id="name" name="fn" required="required" placeholder="För- och Efternamn">
+            </p>
+            <p> <!--email-->
+              <label for="email">E-mail</label><br>
+              <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+            </p>
+            <p> <!--gatuadress-->
+              <label for="gata">Gatuadress</label><br>
+              <input type="text" id="gata" name="ga" placeholder="Leveransadress">
+            </p>
+            <p> <!--gatunummer-->
+              <label for="nummer">Gatunummer</label><br>
+              <input type="number" id="nummer" name="gn" placeholder="Gatunummer">
+            </p>
+            <p> <!--betalning-->
+              <label for="betalning">Betalningsmetod</label><br>
+              <select id="betalning" name="bm">
+                <option>Kort</option>
+                <option>Kontant</option>
+                <option>Faktura</option>
+                <option>Jag vill inte betala</option>
+              </select>
+            </p>
+            <p> <!--tillbehör-->
+              <label for="tillbehör">Välj ETT gratis tillbehör</label><br>
+              <input type="radio" id="pommes" name="tillbehör" value="pommes" checked="checked">
+              <label for="pommes">Pommes</label><br>
+              <input type="radio" id="dricka" name="tillbehör" value="dricka">
+              <label for="dricka">Dricka</label><br>
+              <input type="radio" id="dricka" name="tillbehör" value="inget">
+              <label for="inget">Vill verkligen inte ha något mer</label>
+            </p>
+            </form>
+        </section>
+
+        <button style="background-color:white" type="submit"><img src="https://static4.depositphotos.com/1013907/320/v/450/depositphotos_3207768-stock-illustration-hamburger.jpg" width="20">BESTÄLL</button>
+
+        <hr> <!--adds a line-->
+        <footer>&copy 2020 godaBurgare Inc.</footer> <!--& används vid specialtecken-->
+      </main>
     </body>
 </html>
