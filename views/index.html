@@ -3,73 +3,70 @@
     <head>
         <title>godaBurgare</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
     </head>
 
     <body style="background-color:floralwhite;">
-        <main>
-          <h1>Välkommen till godaBurgare!</h1>
+      <header class="header">
+        <img src="https://www.nisalocally.co.uk/media/r05jfawt/bacon-burgers.jpg?anchor=center&mode=crop&width=2000&height=640&rnd=132357723807630000" alt="Välkommen" title="Welcome">
+        <h1>Välkommen till godaBurgare!</h1>
+      </header>
 
-        <section>
-          <h2 style="color:Tomato">Välj din Burgare</h2>
+      <main>
+      <!--bara satt class o sånt på burgare-->
+        <section id ="burgare">
+          <div class="informationstext"><h2>Välj din Burgare</h2>
           <p>Välj här bland våra goda burgare. Inspirerade av:
           <a href="https://www.max.se/?gclid=CjwKCAjw0On8BRAgEiwAincsHDWqiqoLHg0DHQpX4XhKIjQfjD5LXb6YGIuplHFP2GiAyx5YDMUX1BoCglIQAvD_BwE">
-          maxhamburgare.se </a> </p>
+          maxhamburgare.se </a> </p></div>
 
-          <table align="justify">
-            <thead>
-              <tr>
-                <th style="color:green">superGod cheese</th>
-                <th style="color:green">himlaGod halloumi</th>
-                <th style="color:green">väldigtGod vegan</th>
-              </tr>
-            </thead>
+          <div class="meny">
+                <div class="box burgarnamn cheese">superGod cheese</div>
+                <div class="box burgarnamn halloumi">himlaGod halloumi</div>
+                <div class="box burgarnamn vegan">väldigtGod vegan</div>
 
-            <tbody>
-              <tr> <!--bilderna-->
-                <td><img src="https://www.max.se/contentassets/7283b5a0bf324ba99d7fa7e0caf5ae7f/product_max-original.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Hamburgare" title="Hamburgare" width="200"></td>
-                <td><img src="https://www.max.se/contentassets/bd97342be78047eb8f8026452d545538/product_halloumiburgare.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Halloumiburgare" title="Halloumiburgare" width="200"></td>
-                <td><img src="https://www.max.se/contentassets/f5f13dcf34c24873878e030df544b066/product_delifresh-signature-plant-beef.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Veganskburgare" title="Vegoburgare" width="200"></td>
-              </tr>
+              <!--bilderna-->
+                <img class="box menybild cheese" src="https://www.max.se/contentassets/7283b5a0bf324ba99d7fa7e0caf5ae7f/product_max-original.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Hamburgare" title="Hamburgare">
+                <img class="box menybild halloumi" src="https://www.max.se/contentassets/bd97342be78047eb8f8026452d545538/product_halloumiburgare.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Halloumiburgare" title="Halloumiburgare">
+                <img class="box menybild vegan" src="https://www.max.se/contentassets/f5f13dcf34c24873878e030df544b066/product_delifresh-signature-plant-beef.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Veganskburgare" title="Vegoburgare">
 
-              <tr> <!--innehåll-->
-                  <td> <ul>
-                      <li>Nötkött</li>
-                      <li>Cheddarost</li>
-                      <li>Isbergssallad</li>
-                      <li>Ketchup</li>
-                      <li>Dressing</li>
-                    </ul> </td>
+              <!--innehåll-->
+                <div class = "box innehall cheese"><ul>
+                  <li>Nötkött</li>
+                  <li>Cheddarost</li>
+                  <li>Isbergssallad</li>
+                  <li>Ketchup</li>
+                  <li>Dressing</li>
+                </ul> </div>
 
-                  <td> <ul>
-                      <li>Halloumi</li>
-                      <li>Picklad rödlök</li>
-                      <li>Tomat</li>
-                      <li>Ummamidressing</li>
-                      <li>Briochebröd</li>
-                    </ul> </td>
+                <div class = "box innehall halloumi"><ul>
+                  <li>Halloumi</li>
+                  <li>Picklad rödlök</li>
+                  <li>Tomat</li>
+                  <li>Ummamidressing</li>
+                  <li>Briochebröd</li>
+                </ul> </div>
 
-                  <td> <ul>
-                      <li>Vegansk burgare</li>
-                      <li>Vegansk ost</li>
-                      <li>Isbergssallad</li>
-                      <li>Ketchup</li>
-                      <li>Dressing</li>
-                    </ul> </td>
-              </tr>
+                <div class = "box innehall vegan"><ul>
+                  <li>Vegansk burgare</li>
+                  <li>Vegansk ost</li>
+                  <li>Isbergssallad</li>
+                  <li>Ketchup</li>
+                  <li>Dressing</li>
+                </ul> </div>
 
-              <tr> <!--allergi-->
-                <td>Gluten och laktos</td>
-                <td>Gluten och laktos</td>
-                <td>Allergivänlig</td>
-            </tbody>
-          </table>
+              <!--allergi-->
+                <div class="box allergi cheese">Gluten och laktos</div>
+                <div class="box allergi halloumi">Gluten och laktos</div>
+                <div class="box allergi vegan">Allergivänlig</div>
+          </div>
         </section>
 
-        <section>
-          <h2 style="color:Tomato">Kundinformation</h2>
-          <p>Skriv in kundinformation för att beställa</p>
+        <section id ="kundinformation">
+          <div class="informationstext"><h2>Kundinformation</h2>
+            <p>Skriv in kundinformation för att beställa</p></div>
 
-          <form>
+          <div class="theform"><form>
             <p> <!--namn-->
               <label for="name">Fullständigt namn</label><br>
               <input type="text" id="name" name="fn" required="required" placeholder="För- och Efternamn">
@@ -97,14 +94,17 @@
             </p>
             <p> <!--tillbehör-->
               <label for="tillbehör">Välj ETT gratis tillbehör</label><br>
+
               <input type="radio" id="pommes" name="tillbehör" value="pommes" checked="checked">
               <label for="pommes">Pommes</label><br>
+
               <input type="radio" id="dricka" name="tillbehör" value="dricka">
               <label for="dricka">Dricka</label><br>
-              <input type="radio" id="dricka" name="tillbehör" value="inget">
+
+              <input type="radio" id="inget" name="tillbehör" value="inget">
               <label for="inget">Vill verkligen inte ha något mer</label>
-            </p>
-            </form>
+            </p></div>
+          </form>
         </section>
 
         <button style="background-color:white" type="submit"><img src="https://static4.depositphotos.com/1013907/320/v/450/depositphotos_3207768-stock-illustration-hamburger.jpg" width="20">BESTÄLL</button>
