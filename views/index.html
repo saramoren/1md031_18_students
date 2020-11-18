@@ -3,7 +3,17 @@
     <head>
         <title>godaBurgare</title>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="/css/style.css"></link> <!--behövs ej endlink??-->
+        <link rel="stylesheet" href="css/deli-very.css">
+
+        <script type="text/javascript" src="js/menu.js" defer></script>
+        <script src="js/js_script.js" defer></script>
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="https://vuejs.org/js/vue.js" defer></script> <!--osäker om detta ska vara här-->
+        <script src="js/vue_script.js" defer></script>
+        <script src="/vue/vue.js" defer></script>
     </head>
 
     <body style="background-color:floralwhite;">
@@ -12,25 +22,46 @@
         <h1>Välkommen till godaBurgare!</h1>
       </header>
 
-      <main>
-      <!--bara satt class o sånt på burgare-->
+      <main id="themain">
+
+        <!--JS : <div v-bind:title="arbitraryVariableName" id="myID"></div>-->
+        <!--VUE : <div id="myID">{{ arbitraryVariableName }}</div>-->
+
         <section id ="burgare">
           <div class="informationstext"><h2>Välj din Burgare</h2>
           <p>Välj här bland våra goda burgare. Inspirerade av:
           <a href="https://www.max.se/?gclid=CjwKCAjw0On8BRAgEiwAincsHDWqiqoLHg0DHQpX4XhKIjQfjD5LXb6YGIuplHFP2GiAyx5YDMUX1BoCglIQAvD_BwE">
           maxhamburgare.se </a> </p></div>
 
-          <div class="meny">
+          <div id="menu">
+            <div class="box burgarnamn" v-for="burger in theBurgers"><input type="radio" id="knapp" name="select" :value="burger.name">
+              {{burger.name}}
+            </div>
+            <!--bilderna-->
+            <div v-for="burger in theBurgers">
+              <img class="box menybild" :src="burger.bild" alt="Menyalternativ" title="Burgare">
+            </div>
+            <!--innehåll-->
+            <div class="box innehall" v-for="burger in theBurgers">
+              {{burger.content}}
+            </div>
+            <!--allergi-->
+            <ul class="box allergi" v-for="burger in theBurgers">
+              <li v-if="burger.gluten">{{glu}}</li>
+              <li v-if="burger.lactose">{{lac}}</li>
+              <li v-else>{{noAllergy}}</li>
+            </ul></div>
+          <!--<div class="meny">
                 <div class="box burgarnamn cheese">superGod cheese</div>
                 <div class="box burgarnamn halloumi">himlaGod halloumi</div>
                 <div class="box burgarnamn vegan">väldigtGod vegan</div>
 
-              <!--bilderna-->
+
                 <img class="box menybild cheese" src="https://www.max.se/contentassets/7283b5a0bf324ba99d7fa7e0caf5ae7f/product_max-original.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Hamburgare" title="Hamburgare">
                 <img class="box menybild halloumi" src="https://www.max.se/contentassets/bd97342be78047eb8f8026452d545538/product_halloumiburgare.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Halloumiburgare" title="Halloumiburgare">
                 <img class="box menybild vegan" src="https://www.max.se/contentassets/f5f13dcf34c24873878e030df544b066/product_delifresh-signature-plant-beef.png?width=1024&sharpen=5&sigma=1,4&threshold=0" alt="Veganskburgare" title="Vegoburgare">
 
-              <!--innehåll-->
+
                 <div class = "box innehall cheese"><ul>
                   <li>Nötkött</li>
                   <li>Cheddarost</li>
@@ -55,11 +86,11 @@
                   <li>Dressing</li>
                 </ul> </div>
 
-              <!--allergi-->
+
                 <div class="box allergi cheese">Gluten och laktos</div>
                 <div class="box allergi halloumi">Gluten och laktos</div>
                 <div class="box allergi vegan">Allergivänlig</div>
-          </div>
+          </div>-->
         </section>
 
         <section id ="kundinformation">
@@ -75,20 +106,30 @@
               <label for="email">E-mail</label><br>
               <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
             </p>
-            <p> <!--gatuadress-->
+            <!-- <p>
               <label for="gata">Gatuadress</label><br>
               <input type="text" id="gata" name="ga" placeholder="Leveransadress">
             </p>
-            <p> <!--gatunummer-->
+            <p>
               <label for="nummer">Gatunummer</label><br>
               <input type="number" id="nummer" name="gn" placeholder="Gatunummer">
-            </p>
+            </p> -->
+
+            <h3> Klicka på din leveransadress! </h3>
+            <div class="view-box">
+              <div id="dots" v-on:click="displayOrder">
+                  <div v-bind:style="{ left: location.details.x + 'px', top: location.details.y + 'px'}">
+                    T
+                  </div>
+              </div>
+            </div>
+
             <p> <!--betalning-->
               <label for="betalning">Betalningsmetod</label><br>
               <select id="betalning" name="bm">
                 <option>Kort</option>
                 <option>Kontant</option>
-                <option>Faktura</option>
+                <option>Swish</option>
                 <option>Jag vill inte betala</option>
               </select>
             </p>
@@ -103,14 +144,18 @@
 
               <input type="radio" id="inget" name="tillbehör" value="inget">
               <label for="inget">Vill verkligen inte ha något mer</label>
-            </p></div>
-          </form>
+            </p></form></div>
         </section>
 
-        <button style="background-color:white" type="submit"><img src="https://static4.depositphotos.com/1013907/320/v/450/depositphotos_3207768-stock-illustration-hamburger.jpg" width="20">BESTÄLL</button>
+        <div>
+            <button style="background-color:white" v-on:click="addOrder()" type="submit"><img src="https://static4.depositphotos.com/1013907/320/v/450/depositphotos_3207768-stock-illustration-hamburger.jpg" width="20">BESTÄLL</button>
+        </div>
+
+        <div><p id="contact"></p></div>
 
         <hr> <!--adds a line-->
         <footer>&copy 2020 godaBurgare Inc.</footer> <!--& används vid specialtecken-->
       </main>
+
     </body>
 </html>
